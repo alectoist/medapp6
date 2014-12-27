@@ -10,6 +10,9 @@ class DrugsController < ApplicationController
   # GET /drugs/1
   # GET /drugs/1.json
   def show
+    @ingredients = Ingredient.all
+
+    linked_ingredients = "0"
   end
 
   # GET /drugs/new

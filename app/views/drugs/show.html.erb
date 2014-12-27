@@ -10,5 +10,15 @@
   <%= @drug.description %>
 </p>
 
+<% @ingredients.each do |ingredient| %>
+	<span><%= ingredient.name %>, </span>
+<% end %>
+<br><br><br>
+<p>Has ingredients:</p>
+<% Relationship.where(drug_id: @drug.id).each do |relationship|%>
+ <%= Ingredient.find_by(id: relationship.ingredient_id ).name %> 
+<% end %>
+<br>
+<br>
 <%= link_to 'Edit', edit_drug_path(@drug) %> |
 <%= link_to 'Back', drugs_path %>
