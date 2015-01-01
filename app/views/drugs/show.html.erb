@@ -15,7 +15,7 @@
 <% end %>
 <br><br><br>
 <p>Has ingredients:</p>
-<% Relationship.where(drug_id: @drug.id).each do |relationship|%>
+<% Relationship.where(drug_id: @drug.id).each do |relationship| %>
  <%= Ingredient.find_by(id: relationship.ingredient_id ).name %> 
 <% end %>
 <br>

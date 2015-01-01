@@ -4,15 +4,17 @@ class DrugsController < ApplicationController
   # GET /drugs
   # GET /drugs.json
   def index
-    @drugs = Drug.all
+    @search = Drug.search do
+      fulltext params[:search]
+    end
+    @drugs = @search.results
   end
 
   # GET /drugs/1
   # GET /drugs/1.json
   def show
     @ingredients = Ingredient.all
-
-    linked_ingredients = "0"
+    @relationship = Relationship.new    
   end
 
   # GET /drugs/new

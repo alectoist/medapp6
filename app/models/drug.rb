@@ -5,4 +5,9 @@ class Drug < ActiveRecord::Base
 	has_many :relationships
 	has_many :ingredients, :through => :relationships
 
+	searchable do
+		text :name, boost: 5
+		text :description
+	end
+
 end

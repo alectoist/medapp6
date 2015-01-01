@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
+  get 'pages/home'
+
+  get 'pages/faq'
+
+  get 'pages/help'
+
+  get '/' => 'pages#home', as: :home
+
   resources :relationships
 
   resources :ingredients
 
-  resources :drugs
+  resources :drugs do
+    put :make_relationship, :action => :make_relationship
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
