@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'pages/help'
 
+  get 'drugs/query', defaults: { format: 'json' }
+
   get '/' => 'pages#home', as: :home
 
   resources :relationships

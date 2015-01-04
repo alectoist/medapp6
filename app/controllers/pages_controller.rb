@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
   def home
   	@search = Drug.search do
-  		fulltext params[:search]
-  	end
-  	@drugs = @search.results
+      fulltext params[:search]
+    end
+    @drugs = @search.results
   end
 
   def faq

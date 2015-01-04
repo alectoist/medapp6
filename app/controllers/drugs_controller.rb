@@ -8,6 +8,7 @@ class DrugsController < ApplicationController
       fulltext params[:search]
     end
     @drugs = @search.results
+
   end
 
   # GET /drugs/1
@@ -63,6 +64,21 @@ class DrugsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to drugs_url, notice: 'Drug was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def query
+    search = Drug.search do
+      fulltext params[:q]
+    end
+ 
+    respond_to do |format|
+      format.json do
+        results = search.results.map do |drug|
+          { name: drug.name }
+        end
+        render json: results
+      end
     end
   end
 
