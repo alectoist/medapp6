@@ -12,7 +12,7 @@ end
 
 def make_drugs
 	50.times do |n|
-	name = "drug_name-#{n+1}"
+	name = Faker::Lorem.word + "#{n+1}"
 	description = Faker::Lorem.paragraph(2)
 	Drug.create!(name: name, description: description)
 	end

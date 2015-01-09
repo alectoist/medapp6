@@ -1,18 +1,12 @@
 Rails.application.routes.draw do
-  get 'pages/home'
-
-  get 'pages/faq'
-
-  get 'pages/help'
+  get '/' => 'pages#home', as: :home
+  get '/faq' => 'pages#faq', as: :faq
+  get '/help' => 'pages#help', as: :help
 
   get 'drugs/query', defaults: { format: 'json' }
 
-  get '/' => 'pages#home', as: :home
-
   resources :relationships
-
   resources :ingredients
-
   resources :drugs do
     put :make_relationship, :action => :make_relationship
   end

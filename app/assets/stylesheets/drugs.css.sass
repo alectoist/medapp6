@@ -1,3 +1,54 @@
-// Place all the styles related to the Drugs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Search Bar for Drugs */
+div.search-wrap-drugs
+    position: relative
+    width: 600px
+    padding: 25px 0
+    margin: 0 auto
+
+div.search-wrap-drugs .typeahead
+    min-height: 40px
+    min-width: 600px
+
+div.search-wrap-drugs h1
+    text-align: center
+    font-size: 5em
+    padding: 0 0 25px 0
+    font-family: helvetica
+    color: #4c4c4c
+    text-shadow: 0 0 1px #4c4c4c
+
+button.search-button-drugs
+    border: none
+    padding: 11px
+    right: 10px
+    top: 25px
+    background: transparent scroll
+    position: absolute
+
+button.search-button-drugs:hover
+    background: transparent scroll
+
+
+/* Results List */
+div.results-wrap
+    margin: 0 auto
+    width: 550px
+    background-color: #fff
+   
+div.drug-wrap > div
+    transition: border-left 0.2s
+    
+
+div.results-wrap div
+    font-size: 1.2em
+    background-color: white
+    margin: 0
+    padding: 5px
+    
+
+div.results-wrap div:hover
+    color: #75abc6
+    
+
+div.drug-wrap div:hover
+    border-left: 5px solid #75abc6

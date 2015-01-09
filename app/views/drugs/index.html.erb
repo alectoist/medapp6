@@ -1,36 +1,32 @@
-<h1>Listing drugs</h1>
+<nav class="nav" style="position: absolute; right: 0px;">
+  <ul>
+    <li><%= link_to "FAQ", faq_path %></li>
+    <li><%= link_to "Help", help_path %></li>
+  </ul>
+</nav>
+
+<div class="search-wrap-drugs inner-addon right-addon">
+  <%= form_tag drugs_path, :method => :get do %>
+  <%= text_field_tag :search, params[:search], :class => "typeahead form-control" %>
+  <%= button_tag(type: "submit", class: "btn btn-default search-button-drugs") do %>
+    <i class="glyphicon glyphicon-search"></i>
+  <% end %>
+  <% end %>
+</div>
+
 
 <%= form_tag drugs_path, :method => :get do %>
 
-<p>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search", :name => nil %>
-</p>
-
 <% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="results-wrap">
+  
     <% @drugs.each do |drug| %>
-      <tr>
-        <td><%= drug.name %></td>
-        <td><%= drug.description %></td>
-        <td><%= link_to 'Show', drug %></td>
-        <td><%= link_to 'Edit', edit_drug_path(drug) %></td>
-        <td><%= link_to 'Destroy', drug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="drug-wrap">
+        <div><h3><%= link_to "#{drug.name}", drug  %></34>
+          <p class="drug-description"><%= truncate(drug.description, length: 60) %></p>
+        </div>
+
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Drug', new_drug_path %>
+  
+</div>
