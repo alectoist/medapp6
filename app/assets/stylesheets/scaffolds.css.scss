@@ -66,18 +66,32 @@ div {
 }
 
 /* Nav */
+  .nav {
+  height: 100%;
+  }
+
+  .nav ul {
+  height: 50px;
+  }
+  .nav ul li {
+  height: 70px;
+  
+  }
+
+  .nav ul li:hover {
+  border-bottom: 3px solid #2b92a7;
+  }
+
     .nav ul > li {
     list-style: none;
     float: left;
     padding: 5px 15px;
     font-weight: bold;
+    height: 100%;
     }
-    
-    .nav ul li:hover {
-      text-decoration: none;
-      background-color: #de5430;
-      border-radius: 5px;
-      box-shadow: inset 0px 0px 6px 0px rgba(112, 42, 24, 1);
+      
+    .nav ul li a {
+    color: #eaeaea;
     }
 
      .nav ul li:hover a {
@@ -87,7 +101,7 @@ div {
     
     .nav ul {
       float: right;
-      margin: 10px 50px 0 0;
+      margin: 30px 50px 0 0;
     }
 
 

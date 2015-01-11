@@ -1,11 +1,12 @@
-<nav class="nav" style="position: absolute; right: 0px;">
-  <ul>
-    <li><%= link_to "FAQ", faq_path %></li>
-    <li><%= link_to "Help", help_path %></li>
-  </ul>
-</nav>
+<div class="topbar-wrap">
+  <nav class="nav" style="position: absolute; right: 0px;">
+    <ul>
+      <li><%= link_to "FAQ", faq_path %></li>
+      <li><%= link_to "Help", help_path %></li>
+    </ul>
+  </nav>
 
-<div class="search-wrap-drugs inner-addon right-addon">
+  <div class="search-wrap-drugs inner-addon right-addon">
   <%= form_tag drugs_path, :method => :get do %>
   <%= text_field_tag :search, params[:search], :class => "typeahead form-control" %>
   <%= button_tag(type: "submit", class: "btn btn-default search-button-drugs") do %>
@@ -13,6 +14,9 @@
   <% end %>
   <% end %>
 </div>
+
+</div>
+
 
 
 <%= form_tag drugs_path, :method => :get do %>
@@ -23,7 +27,7 @@
     <% @drugs.each do |drug| %>
       <div class="drug-wrap">
         <div><h3><%= link_to "#{drug.name}", drug  %></34>
-          <p class="drug-description"><%= truncate(drug.description, length: 60) %></p>
+          <p class="drug-description"><%= truncate(drug.description, length: 300) %></p>
         </div>
 
       </div>
