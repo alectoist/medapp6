@@ -17,25 +17,29 @@
 
 </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @drug.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @drug.description %>
-</p>
-
-<% @ingredients.each do |ingredient| %>
-	<span><%= ingredient.name %>, </span>
-<% end %>
-<br><br><br>
-<p>Has ingredients:</p>
+<div class="results-wrap">
+  
+    
+      <div class="drug-wrap drug-wrap-show">
+        <div><h3><%= @drug.name %></h3>
+          <p class="drug-description"><%= @drug.description %></p>
+        </div>
+        <p>Has ingredients:</p>
 <% Relationship.where(drug_id: @drug.id).each do |relationship| %>
  <%= Ingredient.find_by(id: relationship.ingredient_id ).name %> 
 <% end %>
+      </div>
+	    
+  
+</div>
+
+
+
+<% @ingredients.each do |ingredient| %>
+	<% ingredient.name %>
+<% end %>
+
+
 <br>
 <br>
-<%= link_to 'Edit', edit_drug_path(@drug) %> |
-<%= link_to 'Back', drugs_path %>
+
