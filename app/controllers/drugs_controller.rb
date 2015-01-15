@@ -15,8 +15,13 @@ class DrugsController < ApplicationController
   # GET /drugs/1.json
   def show
     @ingredients = Ingredient.all
-    @relationship = Relationship.new    
+    @relationship = Relationship.new  
+
+    @allowed_array = Ingredient.where(id: Relationship.where(drug_id: @drug.id).all.map(&:ingredient_id)).all.map(&:allowed)  
+
   end
+
+    
 
   # GET /drugs/new
   def new

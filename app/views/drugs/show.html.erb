@@ -24,9 +24,9 @@
         <div><h3><%= @drug.name %></h3>
           <p class="drug-description"><%= @drug.description %></p>
         </div>
-        <p>Has ingredients:</p>
+        <p>Substancje aktywne:</p>
 <% Relationship.where(drug_id: @drug.id).each do |relationship| %>
- <%= Ingredient.find_by(id: relationship.ingredient_id ).name %> 
+ <span><%= Ingredient.find_by(id: relationship.ingredient_id ).name %> </span>
 <% end %>
       </div>
 	    
@@ -35,10 +35,11 @@
 
 
 
-<% @ingredients.each do |ingredient| %>
-	<% ingredient.name %>
+<% @allowed_array.each do |allowed| %>
+	<%= allowed %>
 <% end %>
 
+<div><%= allowed? %></div>
 
 <br>
 <br>
