@@ -1,6 +1,6 @@
 class DrugsController < ApplicationController
   before_action :set_drug, only: [:show, :edit, :update, :destroy]
-
+  layout :resolve_layout
   # GET /drugs
   # GET /drugs.json
   def index
@@ -14,6 +14,8 @@ class DrugsController < ApplicationController
   # GET /drugs/1
   # GET /drugs/1.json
   def show
+
+
     @ingredients = Ingredient.all
     @relationship = Relationship.new  
 
@@ -96,5 +98,14 @@ class DrugsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def drug_params
       params.require(:drug).permit(:name, :description)
+    end
+
+    def resolve_layout
+      case action_name
+      when "show", "index"
+        "main"
+      else
+        "application"
+      end
     end
 end

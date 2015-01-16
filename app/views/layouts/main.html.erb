@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Medapp6</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	
+<div class="topbar-wrap">
+  <nav class="nav" style="position: absolute; right: 0px;">
+    <ul>
+      <li><%= link_to "FAQ", faq_path %></li>
+      <li><%= link_to "Help", help_path %></li>
+    </ul>
+  </nav>
+
+  <div class="search-wrap-drugs inner-addon right-addon">
+  <%= form_tag drugs_path, :method => :get do %>
+  <%= text_field_tag :search, params[:search], :class => "typeahead form-control" %>
+  <%= button_tag(type: "submit", class: "btn btn-default search-button-drugs") do %>
+    <i class="glyphicon glyphicon-search"></i>
+  <% end %>
+  <% end %>
+</div>
+
+</div>
+	
+
+<%= yield %>
+
+</body>
+</html>

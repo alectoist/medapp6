@@ -1,46 +1,17 @@
-<div class="topbar-wrap">
-  <nav class="nav" style="position: absolute; right: 0px;">
-    <ul>
-      <li><%= link_to "FAQ", faq_path %></li>
-      <li><%= link_to "Help", help_path %></li>
-    </ul>
-  </nav>
-
-  <div class="search-wrap-drugs inner-addon right-addon">
-  <%= form_tag drugs_path, :method => :get do %>
-  <%= text_field_tag :search, params[:search], :class => "typeahead form-control" %>
-  <%= button_tag(type: "submit", class: "btn btn-default search-button-drugs") do %>
-    <i class="glyphicon glyphicon-search"></i>
-  <% end %>
-  <% end %>
-</div>
-
-</div>
-
-<div class="results-wrap">
-  
-    
+<div class="results-wrap results-wrap-show">
+<div><% allowed? %></div>      
       <div class="drug-wrap drug-wrap-show">
-        <div><h3><%= @drug.name %></h3>
+        <div>
+          <%= code_switch %>
           <p class="drug-description"><%= @drug.description %></p>
         </div>
         <p>Substancje aktywne:</p>
-<% Relationship.where(drug_id: @drug.id).each do |relationship| %>
- <span><%= Ingredient.find_by(id: relationship.ingredient_id ).name %> </span>
-<% end %>
+
+<%= active_ingredients %>
+
       </div>
-	    
-  
 </div>
 
-
-
 <% @allowed_array.each do |allowed| %>
-	<%= allowed %>
+	<% allowed %>
 <% end %>
-
-<div><%= allowed? %></div>
-
-<br>
-<br>
-

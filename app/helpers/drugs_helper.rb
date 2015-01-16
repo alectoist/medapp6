@@ -18,4 +18,34 @@ module DrugsHelper
 		end
 	end
 
+	def code_switch
+
+		if allowed? == "not allowed"
+			render 'red'
+
+		elsif allowed? == "warning"
+			render 'yellow'
+
+		elsif allowed? == "allowed"
+			render 'green'
+
+		else
+			return ''	
+
+		end
+
+	end
+
+
+	def active_ingredients
+		
+		Relationship.where(drug_id: @drug.id).each do |relationship|
+		
+		return link_to Ingredient.find_by(id: relationship.ingredient_id ).name, Ingredient.find_by(id: relationship.ingredient_id )
+		
+
+		end
+
+	end
+	
 end
