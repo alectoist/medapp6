@@ -41,9 +41,8 @@ module DrugsHelper
 		
 		Relationship.where(drug_id: @drug.id).each do |relationship|
 		
-		return link_to Ingredient.find_by(id: relationship.ingredient_id ).name, Ingredient.find_by(id: relationship.ingredient_id )
+		link_to Ingredient.find_by(id: relationship.ingredient_id ).name, Ingredient.find_by(id: relationship.ingredient_id )
 		
-
 		end
 
 	end
