@@ -7,7 +7,23 @@
         </div>
         <p>Substancje aktywne:</p>
 <% Relationship.where(drug_id: @drug.id).each do |relationship| %>
- <span class="active_ingredient"><%= link_to "#{Ingredient.find_by(id: relationship.ingredient_id ).name}", Ingredient.find_by(id: relationship.ingredient_id )  %> </span>
+
+<% 
+
+if Ingredient.find_by(id: relationship.ingredient_id ).allowed == "no"
+	class_switch = "code-red"
+
+elsif Ingredient.find_by(id: relationship.ingredient_id ).allowed == "warning"
+	class_switch = "code-yellow"
+
+elsif Ingredient.find_by(id: relationship.ingredient_id ).allowed == "yes"
+	class_switch = "code-green"
+
+end
+
+ %>
+
+ <span class="active_ingredient <%= class_switch %> "><%= link_to "#{Ingredient.find_by(id: relationship.ingredient_id ).name}", Ingredient.find_by(id: relationship.ingredient_id )  %> </span>
 <% end %>
       </div>
 </div>

@@ -35,16 +35,5 @@ module DrugsHelper
 		end
 
 	end
-
-
-	def active_ingredients
-		
-		Relationship.where(drug_id: @drug.id).each do |relationship|
-		
-		link_to Ingredient.find_by(id: relationship.ingredient_id ).name, Ingredient.find_by(id: relationship.ingredient_id )
-		
-		end
-
-	end
 	
 end
