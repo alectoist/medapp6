@@ -5,7 +5,7 @@
           <%= code_switch %>
           <p class="drug-description"><%= @drug.description %></p>
         </div>
-        <p>Substancje aktywne:</p>
+        <p><b>Substancje aktywne:</b></p>
 <% Relationship.where(drug_id: @drug.id).each do |relationship| %>
 
 <% 
