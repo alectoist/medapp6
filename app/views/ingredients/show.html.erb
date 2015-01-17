@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="results-wrap results-wrap-show">
+      <div class="drug-wrap drug-wrap-show">
+        <div>
+        	<%= ingredient_partial %>
+          
+          <p><%= @ingredient.description %></p>
+        </div>
+        <p><b>Substancja występuje w następujących lekach:</b></p>
+        <div class="ingredients-cloud">
+			<% Relationship.where(ingredient_id: @ingredient.id).each do |relationship| %>
+			 <span class="active_ingredient code-blue"><%= link_to "#{Drug.find_by(id: relationship.drug_id ).name}", Drug.find_by(id: relationship.drug_id )  %> </span>
+			<% end %>
+		</div> 
+       </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @ingredient.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @ingredient.description %>
-</p>
 
-<p>
-  <strong>Allowed:</strong>
-  <%= @ingredient.allowed %>
-</p>
-
-<%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
-<%= link_to 'Back', ingredients_path %>
+	</div>
+</div>

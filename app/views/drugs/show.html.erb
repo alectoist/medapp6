@@ -1,33 +1,30 @@
 <div class="results-wrap results-wrap-show">
-<div><% allowed? %></div>      
       <div class="drug-wrap drug-wrap-show">
         <div>
           <%= code_switch %>
-          <p class="drug-description"><%= @drug.description %></p>
+          <p><%= @drug.description %></p>
         </div>
         <p><b>Substancje aktywne:</b></p>
-<% Relationship.where(drug_id: @drug.id).each do |relationship| %>
 
-<% 
+        	<div class="ingredients-cloud">
+			<% Relationship.where(drug_id: @drug.id).each do |relationship| %>
+			
+			<% 
+			if Ingredient.find_by(id: relationship.ingredient_id ).allowed == "no"
+				class_switch = "code-red"
+			
+			elsif Ingredient.find_by(id: relationship.ingredient_id ).allowed == "warning"
+				class_switch = "code-yellow"
+			
+			elsif Ingredient.find_by(id: relationship.ingredient_id ).allowed == "yes"
+				class_switch = "code-green"
+			
+			end
+			%>
+			
+			 <span class="active_ingredient <%= class_switch %> "><%= link_to "#{Ingredient.find_by(			id: relationship.ingredient_id ).name}", Ingredient.find_by(id: relationship.			ingredient_id )  %> </span>
+			<% end %>
+			</div>
 
-if Ingredient.find_by(id: relationship.ingredient_id ).allowed == "no"
-	class_switch = "code-red"
-
-elsif Ingredient.find_by(id: relationship.ingredient_id ).allowed == "warning"
-	class_switch = "code-yellow"
-
-elsif Ingredient.find_by(id: relationship.ingredient_id ).allowed == "yes"
-	class_switch = "code-green"
-
-end
-
- %>
-
- <span class="active_ingredient <%= class_switch %> "><%= link_to "#{Ingredient.find_by(id: relationship.ingredient_id ).name}", Ingredient.find_by(id: relationship.ingredient_id )  %> </span>
-<% end %>
-      </div>
+	</div>
 </div>
-
-<% @allowed_array.each do |allowed| %>
-	<% allowed %>
-<% end %>
