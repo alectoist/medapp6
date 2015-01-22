@@ -17,8 +17,16 @@ $(function() {
     $('.typeahead').typeahead(null, {
       name: 'drugSearch',
       displayKey: 'name',
-      source: drugSearch.ttAdapter()
-      
+      source: drugSearch.ttAdapter(),
+  templates: {
+    empty: [
+      '<div class="empty-message">',
+      'unable to find any company that match current query',
+      '</div>'
+    ].join('\n'),
+      suggestion: Handlebars.compile('<a href="{{link}}"><p>{{name}}</p></a>')
+  }
+
     }); 
 
 
