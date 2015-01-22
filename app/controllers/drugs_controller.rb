@@ -82,7 +82,7 @@ class DrugsController < ApplicationController
     respond_to do |format|
       format.json do
         results = search.results.map do |drug|
-          { name: drug.name }
+          { name: drug.name, link: "http://localhost:3000/drugs/#{drug.id}" }
         end
         render json: results
       end
