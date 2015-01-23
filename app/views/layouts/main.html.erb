@@ -11,8 +11,8 @@
 <div class="topbar-wrap">
   <nav class="nav" style="position: absolute; right: 0px;">
     <ul>
-      <li><%= link_to "FAQ", faq_path %></li>
-      <li><%= link_to "Help", help_path %></li>
+      <%= link_to "<li>FAQ</li>".html_safe, faq_path %>
+      <%= link_to "<li>Pomoc</li>".html_safe, help_path %>
     </ul>
   </nav>
 

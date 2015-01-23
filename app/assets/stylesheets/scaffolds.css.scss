@@ -82,7 +82,7 @@ div {
   border-bottom: 3px solid #2b92a7;
   }
 
-    .nav ul > li {
+    .nav ul a li  {
     list-style: none;
     float: left;
     padding: 5px 15px;
@@ -90,8 +90,9 @@ div {
     height: 100%;
     }
       
-    .nav ul li a {
+    .nav ul a li {
     color: #eaeaea;
+    display: block
     }
 
      .nav ul li:hover a {
