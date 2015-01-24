@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/' => 'pages#home', as: :home
   get '/faq' => 'pages#faq', as: :faq
   get '/help' => 'pages#help', as: :help
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :drugs do
     put :make_relationship, :action => :make_relationship
+
+  
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
