@@ -10,6 +10,7 @@
 	
 <div class="topbar-wrap">
   <%= link_to "<div id=\"logo\">Search Meds</div>".html_safe, '/' %>
+
   <nav class="nav" style="position: absolute; right: 0px;">
     <ul>
       <%= link_to "<li>FAQ</li>".html_safe, faq_path %>
@@ -24,6 +25,17 @@
     <i class="glyphicon glyphicon-search"></i>
   <% end %>
   <% end %>
+</div>
+
+<div id="user-nav" style="position: relative">
+<% if user_signed_in? %>
+Logged in as <strong><%= current_user.email %></strong>.
+<%= link_to 'Edit profile', edit_user_registration_path %>
+<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<% else %>
+<%= link_to 'Sign up', new_user_registration_path %>
+<%= link_to 'Login', new_user_session_path %>
+<% end %>
 </div>
 
 </div>
