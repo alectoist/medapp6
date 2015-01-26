@@ -1,4 +1,5 @@
 class IngredientsController < ApplicationController
+  before_filter :require_login
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
   layout 'main'
   # GET /ingredients

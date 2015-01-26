@@ -1,4 +1,7 @@
 class DrugsController < ApplicationController
+
+  before_filter :require_login
+
   before_action :set_drug, only: [:show, :edit, :update, :destroy]
   layout :resolve_layout
   # GET /drugs

@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+
+  before_filter :require_login
+
   def home
   	@search = Drug.search do
       fulltext params[:search]
