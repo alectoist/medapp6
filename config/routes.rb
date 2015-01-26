@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
   get '/' => 'pages#home', as: :home
   get '/faq' => 'pages#faq', as: :faq
   get '/help' => 'pages#help', as: :help
