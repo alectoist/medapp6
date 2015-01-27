@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 
   before_filter :require_login
 
+  layout :resolve_layout
   def home
   	@search = Drug.search do
       fulltext params[:search]
@@ -13,5 +14,14 @@ class PagesController < ApplicationController
   end
 
   def help
+  end
+
+  def resolve_layout
+      case action_name
+      when "faq", "help"
+        "main"
+      else
+        "application"
+      end
   end
 end

@@ -2,8 +2,8 @@
   
     <% @drugs.each do |drug| %>
       <div class="drug-wrap">
-        <div><h3><%= link_to "#{drug.name}", drug  %></34>
-          <p class="drug-description"><%= truncate(drug.description, length: 300) %></p>
+        <div><h3><%= link_to "#{drug.name}", drug  %>
+          <p class="drug-description"><%= truncate(drug.description, length: 300) %></p></h3>
         </div>
 
       </div>
