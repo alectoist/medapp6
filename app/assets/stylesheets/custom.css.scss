@@ -1,3 +1,29 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.login-wrap, .sign-up-wrap, .forgot-password {
+	background: #fff;
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 50px;
+	box-shadow: 
+        0px 0px 0px 5px rgba( 255,255,255,0.4 ), 
+        0px 4px 20px rgba( 0,0,0,0.33 );
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display: table;
+    position: static;
+	padding: 25px;
+	font-family: "Helvetica Neue", Helvetica, Arial;
+}
+
+.alert{
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 100px;
+	width: 250px;
+	text-align: center;
+}
