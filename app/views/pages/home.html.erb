@@ -31,8 +31,8 @@ Logged in as <strong><%= current_user.email %></strong>.
 
 <% if current_user.admin? %>
 
-<div id="admin-panel">
-<%= link_to "<li>Admin panel</li>".html_safe, '#' %>
+<div id="admin-link">
+<%= link_to "<li>Admin panel</li>".html_safe, admin_path %>
 </div>
 
 <% end %>

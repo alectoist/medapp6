@@ -22,7 +22,7 @@ class PagesController < ApplicationController
 
   def resolve_layout
       case action_name
-      when "faq", "help","admin_panel"
+      when "faq", "help"
         "main"
       else
         "application"
