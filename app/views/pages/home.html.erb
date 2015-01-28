@@ -29,3 +29,10 @@ Logged in as <strong><%= current_user.email %></strong>.
 	<% end %>
 </div>
 
+<% if current_user.admin? %>
+
+<div id="admin-panel">
+<%= link_to "<li>Admin panel</li>".html_safe, '#' %>
+</div>
+
+<% end %>

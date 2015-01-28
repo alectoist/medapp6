@@ -16,9 +16,13 @@ class PagesController < ApplicationController
   def help
   end
 
+  def admin_panel
+    require_admin
+  end
+
   def resolve_layout
       case action_name
-      when "faq", "help"
+      when "faq", "help","admin_panel"
         "main"
       else
         "application"

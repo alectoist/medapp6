@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/' => 'pages#home', as: :home
   get '/faq' => 'pages#faq', as: :faq
   get '/help' => 'pages#help', as: :help
+  get 'admin' => 'pages#admin_panel', as: :admin
 
   get 'drugs/query', defaults: { format: 'json' }
 
@@ -10,8 +11,6 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :drugs do
     put :make_relationship, :action => :make_relationship
-
-  
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
