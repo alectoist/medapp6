@@ -16,7 +16,11 @@ class PagesController < ApplicationController
   def help
   end
 
-  def admin_panel
+  def view_drugs
+    require_admin
+  end
+
+  def view_ingredients
     require_admin
   end
 
@@ -24,6 +28,8 @@ class PagesController < ApplicationController
       case action_name
       when "faq", "help"
         "main"
+      when "viewdrugs", "viewingredients"
+        "admin_layout"
       else
         "application"
       end

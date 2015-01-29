@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get '/' => 'pages#home', as: :home
   get '/faq' => 'pages#faq', as: :faq
   get '/help' => 'pages#help', as: :help
-  get 'admin' => 'pages#admin_panel', as: :admin
+  get 'view_drugs' => 'pages#viewdrugs', as: :viewdrugs
+  get 'view_ingredients' => 'pages#viewingredients', as: :viewingredients
 
   get 'drugs/query', defaults: { format: 'json' }
 

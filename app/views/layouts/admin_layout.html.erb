@@ -35,6 +35,13 @@ Logged in as <strong><%= current_user.email %></strong>.
 
 
 </div>
+<div id="admin-sidemenu">
+  <ul id="sidemenu-links">
+  <%= link_to "<li>View drugs</li>".html_safe, viewdrugs_path %>
+  <%= link_to "<li>View ingredients</li>".html_safe, viewingredients_path %>
+  </ul>
+  
+</div>
 
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
