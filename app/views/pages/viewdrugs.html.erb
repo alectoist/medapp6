@@ -13,9 +13,9 @@
 <tr>
 <td><%= drug.name %></td>
 <td><%= drug.description %></td>
-<td><%= link_to 'Show', drug %></td>
-<td><%= link_to 'Edit', edit_drug_path(drug) %></td>
-<td><%= link_to 'Destroy', drug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<td><div class="ingredients-cloud"><span class="active_ingredient code-blue"><%= link_to 'Show', drug %></span></div></td>
+<td><div class="ingredients-cloud"><span class="active_ingredient code-blue"><%= link_to 'Edit', edit_drug_path(drug) %></span></div></td>
+<td><div class="ingredients-cloud"><span class="active_ingredient code-blue"><%= link_to 'Destroy', drug, method: :delete, data: { confirm: 'Are you sure?' } %></span></div></td>
 </tr>
 <% end %>
 </tbody>
