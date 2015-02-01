@@ -22,7 +22,7 @@
 			end
 			%>
 			
-			 <span class="active_ingredient <%= class_switch %> "><%= link_to "#{Ingredient.find_by(			id: relationship.ingredient_id ).name}", Ingredient.find_by(id: relationship.			ingredient_id )  %> </span>
+			 <span class="active_ingredient <%= class_switch %> "><%= link_to "#{Ingredient.find_by(id: relationship.ingredient_id ).name}", Ingredient.find_by(id: relationship.ingredient_id ) %> </span>
 			<% end %>
 			</div>
 

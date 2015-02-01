@@ -15,5 +15,6 @@ class ApplicationController < ActionController::Base
   	unless current_user.admin?
   		redirect_to 'http://localhost:3000'
   	end
-  end	
+  end
+  
 end

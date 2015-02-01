@@ -1,23 +1,26 @@
 <div id="admin-viewdrugs-wrap">
-
+<%= link_to '<div class="btn btn-default new-item">New Ingredient</div>'.html_safe, new_ingredient_path %>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
+<th>Appears in:</th>
 <th colspan="3"></th>
 </tr>
 </thead>
 <tbody>
-<% Ingredient.all.each do |ingredient| %>
+<% @ingredients.each do |ingredient| %>
 <tr>
 <td><%= ingredient.name %></td>
 <td><%= ingredient.description %></td>
-<td><%= link_to 'Show', ingredient %></td>
-<td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
-<td><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<td><%= Ingredient.where(id: Relationship.where(ingredient_id: ingredient.id).all.map(&:drug_id)).all.map(&:name).join(', ') %></td>
+<td><span class="btn btn-default"><%= link_to 'Show', ingredient %></span></td>
+<td><span class="btn btn-default"><%= link_to 'Edit', edit_ingredient_path(ingredient) %></span></td>
+<td><span class="btn btn-default"><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
 </tr>
 <% end %>
+
 </tbody>
 </table>
 

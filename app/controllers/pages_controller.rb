@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
 
   before_filter :require_login
-
   layout :resolve_layout
   def home
   	@search = Drug.search do
@@ -16,18 +15,27 @@ class PagesController < ApplicationController
   def help
   end
 
-  def view_drugs
+  def viewdrugs
     require_admin
+    @search = Drug.search do
+      fulltext params[:search]
+      paginate(:page => params[:page] || 1, :per_page => 10)
+    end
+    @drugs = @search.results
+
+
   end
 
-  def view_ingredients
+  def viewingredients
     require_admin
+    @ingredients = @search.results
+
   end
 
   def resolve_layout
       case action_name
       when "faq", "help"
-        "main"
+        "main"  
       when "viewdrugs", "viewingredients"
         "admin_layout"
       else
