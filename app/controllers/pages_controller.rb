@@ -28,7 +28,11 @@ class PagesController < ApplicationController
 
   def viewingredients
     require_admin
-    @ingredients = Ingredient.all.paginate(:page => params[:page], :per_page => 5)
+    @search = Ingredient.search do
+      fulltext params[:search]
+      paginate(:page => params[:page] || 1, :per_page => 5)
+    end
+    @ingredients = @search.results
 
   end
 

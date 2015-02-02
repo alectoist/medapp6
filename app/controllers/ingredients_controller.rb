@@ -6,7 +6,10 @@ class IngredientsController < ApplicationController
   # GET /ingredients.json
 
   def index
-    @ingredients = Ingredient.all
+    @search = Ingredient.search do
+      fulltext params[:search]
+    end
+    @ingredients = @search.results
   end
 
   # GET /ingredients/1
@@ -60,6 +63,21 @@ class IngredientsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to ingredients_url, notice: 'Ingredient was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def query
+    search = Ingredient.search do
+      fulltext params[:q]
+    end
+ 
+    respond_to do |format|
+      format.json do
+        results = search.results.map do |drug|
+          { name: ingredient.name, link: "http://localhost:3000/ingredient/#{ingredient.id}" }
+        end
+        render json: results
+      end
     end
   end
 

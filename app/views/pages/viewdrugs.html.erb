@@ -2,7 +2,7 @@
 <%= link_to '<div class="btn btn-default new-item">New Drug</div>'.html_safe, new_drug_path %>
 
 
-<%= form_tag viewdrugs_path, :method => 'get', :id => "viewproducts_search" do %>
+<%= form_tag viewdrugs_path, :method => 'get', :id => "viewdrugs_search" do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>

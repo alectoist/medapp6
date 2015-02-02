@@ -6,4 +6,9 @@ class Ingredient < ActiveRecord::Base
 	has_many :relationships
 	has_many :drugs, :through => :relationships
 	
+	searchable do
+		text :name, boost: 5
+		text :description
+	end
+	
 end
