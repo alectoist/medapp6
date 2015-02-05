@@ -16,4 +16,5 @@
 //= require handlebars
 //= require twitter/typeahead
 //= require turbolinks
+//= require jquery.tokeninput
 //= require_tree .
