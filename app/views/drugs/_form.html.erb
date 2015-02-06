@@ -1,4 +1,4 @@
-<%= nested_form_for(@drug) do |f| %>
+<%= form_for(@drug) do |f| %>
   <% if @drug.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@drug.errors.count, "error") %> prohibited this drug from being saved:</h2>
@@ -19,16 +19,7 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
-  
-      <%= f.fields_for :relationship do |relationship| %>
-      <div class="field">
-        <%= relationship.hidden_field :drug_id, :value => @drug.id %>
-        <%= relationship.label :ingredient_id %>
-        <%= relationship.text_field :ingredient_id %>
-      </div>
-      <% end %>
-  
-
+    
   <div class="actions">
     <%= f.submit %>
   </div>

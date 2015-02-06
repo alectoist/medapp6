@@ -26,8 +26,6 @@ class DrugsController < ApplicationController
 
   end
 
-    
-
   # GET /drugs/new
   def new
     @drug = Drug.new
