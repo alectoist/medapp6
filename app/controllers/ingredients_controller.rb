@@ -19,16 +19,19 @@ class IngredientsController < ApplicationController
 
   # GET /ingredients/new
   def new
+    require_admin
     @ingredient = Ingredient.new
   end
 
   # GET /ingredients/1/edit
   def edit
+    require_admin
   end
 
   # POST /ingredients
   # POST /ingredients.json
   def create
+    require_admin
     @ingredient = Ingredient.new(ingredient_params)
 
     respond_to do |format|
@@ -45,6 +48,7 @@ class IngredientsController < ApplicationController
   # PATCH/PUT /ingredients/1
   # PATCH/PUT /ingredients/1.json
   def update
+    require_admin
     respond_to do |format|
       if @ingredient.update(ingredient_params)
         format.html { redirect_to @ingredient, notice: 'Ingredient was successfully updated.' }
@@ -59,6 +63,7 @@ class IngredientsController < ApplicationController
   # DELETE /ingredients/1
   # DELETE /ingredients/1.json
   def destroy
+    require_admin
     @ingredient.destroy
     respond_to do |format|
       format.html { redirect_to ingredients_url, notice: 'Ingredient was successfully destroyed.' }
