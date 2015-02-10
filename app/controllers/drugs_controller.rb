@@ -17,27 +17,26 @@ class DrugsController < ApplicationController
   # GET /drugs/1
   # GET /drugs/1.json
   def show
-
-
     @ingredients = Ingredient.all
     @relationship = Relationship.new  
-
     @allowed_array = Ingredient.where(id: Relationship.where(drug_id: @drug.id).all.map(&:ingredient_id)).all.map(&:allowed)  
-
   end
 
   # GET /drugs/new
   def new
+    require_admin
     @drug = Drug.new
   end
 
   # GET /drugs/1/edit
   def edit
+    require_admin
   end
 
   # POST /drugs
   # POST /drugs.json
   def create
+    require_admin
     @drug = Drug.new(drug_params)
 
     respond_to do |format|
@@ -54,6 +53,7 @@ class DrugsController < ApplicationController
   # PATCH/PUT /drugs/1
   # PATCH/PUT /drugs/1.json
   def update
+    require_admin
     respond_to do |format|
       if @drug.update(drug_params)
         format.html { redirect_to @drug, notice: 'Drug was successfully updated.' }
@@ -68,6 +68,7 @@ class DrugsController < ApplicationController
   # DELETE /drugs/1
   # DELETE /drugs/1.json
   def destroy
+    require_admin
     @drug.destroy
     respond_to do |format|
       format.html { redirect_to drugs_url, notice: 'Drug was successfully destroyed.' }

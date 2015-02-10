@@ -11,9 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
 //= require handlebars
 //= require twitter/typeahead
+<<<<<<< HEAD
 //= require turbolinks
+=======
+//= require jquery.tokeninput
+>>>>>>> a056d21bf9ee1903a69607074533d88e70e2a435
 //= require_tree .

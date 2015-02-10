@@ -19,12 +19,7 @@ $(function() {
       displayKey: 'name',
       source: drugSearch.ttAdapter(),
   templates: {
-    empty: [
-      '<div class="empty-message">',
-      'Niestety, nie udało się wyszukać w naszej bazie danych substancji, którą szukasz.',
-      '</div>'
-    ].join('\n'),
-      suggestion: Handlebars.compile('<a href="{{link}}"><p>{{name}}</p></a>')
+    suggestion: Handlebars.compile('<a href="{{link}}"><p>{{name}}</p></a>')
   }
 
     }); 
