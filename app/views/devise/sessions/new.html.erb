@@ -44,25 +44,25 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="field-wrap">
+    <%= f.label :email, id: 'signup_email_label' %><br />
+    <%= f.email_field :email, autofocus: true, id: 'signup_email_field' %>
   </div>
-  <div class="field">
-    <%= f.label :password %>
+  <div class="field-wrap">
+    <%= f.label :password, id: 'signup_password_label'  %>
     <% if @validatable %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", id: 'signup_password_field' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="field-wrap">
+    <%= f.label :password_confirmation, 'Confirmation', id: 'signup_confirmation_label' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", id: 'signup_confirmation_field' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: 'button' %>
   </div>
 <% end %>
 
