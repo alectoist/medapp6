@@ -6,6 +6,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients.json
 
   def index
+    require_admin
     @search = Ingredient.search do
       fulltext params[:search]
     end

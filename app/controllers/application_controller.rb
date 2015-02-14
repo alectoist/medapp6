@@ -7,13 +7,13 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless current_user
-      redirect_to 'http://localhost:3000/login'
+      redirect_to '/login'
     end
   end
 
   def require_admin
   	unless current_user.admin?
-  		redirect_to 'http://localhost:3000'
+  		redirect_to root_path
   	end
   end
   
