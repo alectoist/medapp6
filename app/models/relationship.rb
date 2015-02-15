@@ -1,7 +1,7 @@
 class Relationship < ActiveRecord::Base
 
-	belongs_to :drug
-	belongs_to :ingredient
+	belongs_to :drug, :foreign_key => :drug_id
+	belongs_to :ingredient, :foreign_key => :ingredient_id
 
 	validates :drug_id, presence: true
 	validates :ingredient_id, presence: true

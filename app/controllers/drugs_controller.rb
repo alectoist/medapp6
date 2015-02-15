@@ -91,6 +91,16 @@ class DrugsController < ApplicationController
     end
   end
 
+  def importcsv
+    csv = Roo::Spreadsheet.open(params[:file].path, :extension => :csv )
+
+    csv.each do |item| 
+      Drug.create!(name: item[0].to_s)
+    end
+
+    redirect_to viewdrugs_path, notice: "Drug imported."
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_drug

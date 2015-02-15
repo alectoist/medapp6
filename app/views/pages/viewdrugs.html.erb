@@ -1,6 +1,12 @@
 <div id="admin-viewdrugs-wrap">
 <%= link_to '<div class="btn btn-default new-item">New Drug</div>'.html_safe, new_drug_path %>
 
+<div style="float: right"><h4>Import CSV</h4>
+<%= form_tag importcsv_path, multipart: true do |f| %>
+	<%= file_field_tag :file %>
+	<%= submit_tag "Import" %>
+<% end %>
+</div>
 
 <%= form_tag viewdrugs_path, :method => 'get', :id => "viewdrugs_search" do %>
   <p>
@@ -9,7 +15,6 @@
   </p>
   
 <% end %>
-
 
 <table>
 <thead>
@@ -34,5 +39,4 @@
 <%= will_paginate @drugs %>
 </tbody>
 </table>
-
 </div>

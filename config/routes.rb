@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/help' => 'pages#help', as: :help
   get 'view_drugs' => 'pages#viewdrugs', as: :viewdrugs
   get 'view_ingredients' => 'pages#viewingredients', as: :viewingredients
+  post '/import' => 'drugs#importcsv', as: :importcsv
 
   get 'drugs/query', defaults: { format: 'json' }
 
