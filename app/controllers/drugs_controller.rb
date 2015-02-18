@@ -95,10 +95,50 @@ class DrugsController < ApplicationController
     csv = Roo::Spreadsheet.open(params[:file].path, :extension => :csv )
 
     csv.each do |item| 
-      Drug.create!(name: item[0].to_s)
+   
+      if Drug.find_by(name: item[0].to_s).nil?
+         Drug.create!(name: item[0].to_s)
+
+         unless item[1].nil?
+           if Ingredient.find_by(name: item[1].to_s).nil?
+             Ingredient.create!(name: item[1], allowed: 'yes')
+           end
+         end
+
+         unless item[2].nil?
+          ingredients_array_1 = item[2].split('+')
+
+            ingredients_array_1.each do |ingr|
+              if Ingredient.find_by(name: ingr.to_s).nil?
+                Ingredient.create!(name: ingr.to_s, allowed: 'yes')
+              end
+            end
+         end
+
+         unless item[3].nil?
+          removestring = item[3].sub(/(\s([A-Z]|INF)\s([A-Z]|\d)-[A-Z](.*)\z)|(\s\d(.*)\z)/, '')
+          splitstring = removestring.split('+')
+
+          if splitstring === Array
+            splitstring.each do |ingr2|
+              if Ingredient.find_by(name: ingr2).nil?
+                Ingredient.create!(name: ingr2, allowed: 'yes')
+              end
+            end 
+
+            else
+              if Ingredient.find_by(name: splitstring).nil?
+                Ingredient.create!(name: splitstring, allowed: 'yes')
+              end
+          end
+
+         end
+
+      end 
+
     end
 
-    redirect_to viewdrugs_path, notice: "Drug imported."
+    redirect_to viewdrugs_path, notice: "CSV imported."
   end
 
   private
