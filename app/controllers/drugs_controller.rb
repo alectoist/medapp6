@@ -119,7 +119,7 @@ class DrugsController < ApplicationController
           removestring = item[3].sub(/(\s([A-Z]|INF)\s([A-Z]|\d)-[A-Z](.*)\z)|(\s\d(.*)\z)/, '')
           splitstring = removestring.split('+')
 
-          if splitstring === Array
+          if splitstring.class == Array
             splitstring.each do |ingr2|
               if Ingredient.find_by(name: ingr2).nil?
                 Ingredient.create!(name: ingr2, allowed: 'yes')
