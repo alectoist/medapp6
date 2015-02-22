@@ -95,46 +95,67 @@ class DrugsController < ApplicationController
     csv = Roo::Spreadsheet.open(params[:file].path, :extension => :csv )
 
     csv.each do |item| 
-   
-      if Drug.find_by(name: item[0].to_s).nil?
-         Drug.create!(name: item[0].to_s)
+      createdingredients = Array.new
 
-         unless item[1].nil?
+      if item[0].to_s.blank? == false && Drug.find_by(name: item[0].to_s).nil?
+         createddrug = Drug.create!(name: item[0].to_s)
+
+         unless item[1].nil? && item[1].to_s.blank? == true
            if Ingredient.find_by(name: item[1].to_s).nil?
-             Ingredient.create!(name: item[1], allowed: 'yes')
+             createdingredient = Ingredient.create!(name: item[1], allowed: 'yes')
+             createdingredients << createdingredient.id
+           else
+            createdingredient = Ingredient.find_by(name: item[1].to_s).id
+            createdingredients << createdingredient
            end
          end
 
-         unless item[2].nil?
+         unless item[2].nil? && item[2].to_s.blank? == true
           ingredients_array_1 = item[2].split('+')
 
             ingredients_array_1.each do |ingr|
-              if Ingredient.find_by(name: ingr.to_s).nil?
-                Ingredient.create!(name: ingr.to_s, allowed: 'yes')
+              if Ingredient.find_by(name: ingr).nil?
+                createdingredient = Ingredient.create!(name: ingr.to_s, allowed: 'yes')
+                createdingredients << createdingredient.id
+                else
+                createdingredient = Ingredient.find_by(name: ingr.to_s).id
+                createdingredients << createdingredient
               end
             end
          end
 
-         unless item[3].nil?
+         unless item[3].nil? && item[3].to_s.blank? == true
           removestring = item[3].sub(/(\s([A-Z]|INF)\s([A-Z]|\d)-[A-Z](.*)\z)|(\s\d(.*)\z)/, '')
           splitstring = removestring.split('+')
 
           if splitstring.class == Array
             splitstring.each do |ingr2|
-              if Ingredient.find_by(name: ingr2).nil?
-                Ingredient.create!(name: ingr2, allowed: 'yes')
+              if Ingredient.find_by(name: ingr2).nil? && ingr2.to_s.blank? == false
+                createdingredient = Ingredient.create!(name: ingr2, allowed: 'yes')
+                createdingredients << createdingredient.id
+                elsif Ingredient.find_by(name: ingr2).nil? == false && ingr2.nil? == false
+                createdingredient = Ingredient.find_by(name: ingr2).id
+                createdingredients << createdingredient
               end
             end 
 
             else
               if Ingredient.find_by(name: splitstring).nil?
-                Ingredient.create!(name: splitstring, allowed: 'yes')
+                createdingredient = Ingredient.create!(name: splitstring, allowed: 'yes')
+                createdingredients << createdingredient.id
+                else
+                createdingredient = Ingredient.find_by(name: splitstring).id
+                createdingredients << createdingredient
               end
           end
 
          end
+         
+         createdingredients.each do |ingr3|
+          Relationship.create!(drug_id: createddrug.id, ingredient_id: ingr3)
+         end
 
-      end 
+      end  
 
     end
 

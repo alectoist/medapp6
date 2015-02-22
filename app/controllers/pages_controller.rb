@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     require_admin
     @search = Drug.search do
       fulltext params[:search]
-      paginate(:page => params[:page] || 1, :per_page => 10)
+      paginate(:page => params[:page] || 1, :per_page => 100)
     end
     @drugs = @search.results
 
@@ -30,7 +30,7 @@ class PagesController < ApplicationController
     require_admin
     @search = Ingredient.search do
       fulltext params[:search]
-      paginate(:page => params[:page] || 1, :per_page => 5)
+      paginate(:page => params[:page] || 1, :per_page => 100)
     end
     @ingredients = @search.results
 
