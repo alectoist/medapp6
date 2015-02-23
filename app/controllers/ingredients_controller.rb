@@ -80,7 +80,7 @@ class IngredientsController < ApplicationController
     respond_to do |format|
       format.json do
         results = search.results.map do |drug|
-          { name: ingredient.name, link: "http://localhost:3000/ingredient/#{ingredient.id}" }
+          { name: ingredient.name, link: "https://sleepy-tor-6329.herokuapp.com/ingredient/#{ingredient.id}" }
         end
         render json: results
       end
