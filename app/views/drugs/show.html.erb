@@ -2,7 +2,16 @@
       <div class="drug-wrap drug-wrap-show">
         <div>
           <%= code_switch %>
-          <p><%= @drug.description %></p>
+          	<% if ingredients_have_descriptions? %>
+          	<p>
+          		<% @drug.ingredients.each do |ingredient| %>
+          		<% unless ingredient.description.nil? || ingredient.description.blank? %>
+          			<span><%= ingredient.description %></span>
+         		<% end %>
+         	<% end %>
+         	</p>
+         	<% end %>
+          	
         </div>
         <p><b>Substancje aktywne:</b></p>
 

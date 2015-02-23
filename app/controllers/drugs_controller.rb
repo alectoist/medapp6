@@ -17,9 +17,7 @@ class DrugsController < ApplicationController
   # GET /drugs/1
   # GET /drugs/1.json
   def show
-    @ingredients = Ingredient.all
-    @relationship = Relationship.new  
-    @allowed_array = Ingredient.where(id: Relationship.where(drug_id: @drug.id).all.map(&:ingredient_id)).all.map(&:allowed)  
+   #@allowed_array = Ingredient.where(id: Relationship.where(drug_id: @drug.id).all.map(&:ingredient_id)).all.map(&:allowed)  
   end
 
   # GET /drugs/new
@@ -160,6 +158,11 @@ class DrugsController < ApplicationController
     end
 
     redirect_to viewdrugs_path, notice: "CSV imported."
+  end
+
+  def identify_code_red
+    csv = Roo::Spreadsheet.open(params[:file].path, :extension => :csv )
+    
   end
 
   private

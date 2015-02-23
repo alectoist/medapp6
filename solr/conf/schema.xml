@@ -64,13 +64,11 @@
     <tokenizer class="solr.StandardTokenizerFactory"/>
     <filter class="solr.StandardFilterFactory"/>
     <filter class="solr.LowerCaseFilterFactory"/>
-    <filter class="solr.NGramFilterFactory"
-            minGramSize="3"
-            maxGramSize="30"/>
+    <filter class="solr.NGramFilterFactory" minGramSize="3" maxGramSize="30"/>
   </analyzer>
   <analyzer type="query">
     <tokenizer class="solr.StandardTokenizerFactory"/>
-    <filter class="solr.StandardFilterFactory"/>
+    <filter class="solr.StandardFilterFactory" />
     <filter class="solr.LowerCaseFilterFactory"/>
   </analyzer>`
     </fieldType>

@@ -36,4 +36,18 @@ module DrugsHelper
 
 	end
 	
+	def ingredients_have_descriptions?
+		ingredientsarray = Array.new
+		@drug.ingredients.ids.each do |id|
+    		unless Ingredient.find(id).description.nil? || Ingredient.find(id).description.blank?
+				ingredientsarray << id
+    		end
+   		end
+
+   		unless ingredientsarray.empty?
+   			return true
+   		end
+
+	end
+
 end
