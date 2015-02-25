@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'view_drugs' => 'pages#viewdrugs', as: :viewdrugs
   get 'view_ingredients' => 'pages#viewingredients', as: :viewingredients
   post '/import' => 'drugs#importcsv', as: :importcsv
+  post '/identify' => 'drugs#identifyred', as: :identifyred
 
   get 'drugs/query', defaults: { format: 'json' }
 

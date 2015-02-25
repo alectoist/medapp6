@@ -160,9 +160,20 @@ class DrugsController < ApplicationController
     redirect_to viewdrugs_path, notice: "CSV imported."
   end
 
-  def identify_code_red
-    csv = Roo::Spreadsheet.open(params[:file].path, :extension => :csv )
+  def identifyred
+    csv = Roo::Spreadsheet.open(params[:file_identify].path, :extension => :csv )
     
+    csv.each do |item|
+      unless Ingredient.find_by(name: item[0].to_s).nil?
+        Ingredient.find_by(name: item[0].to_s).allowed = "no"
+      end
+
+      unless Ingredient.find_by(name: item[1].to_s).nil?
+        Ingredient.find_by(name: item[1].to_s).allowed = "no"
+      end
+    end
+
+    redirect_to viewdrugs_path, notice: "CSV imported."
   end
 
   private

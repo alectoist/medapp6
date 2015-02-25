@@ -4,7 +4,13 @@
 <div style="float: right"><h4>Import CSV</h4>
 <%= form_tag importcsv_path, multipart: true do |f| %>
 	<%= file_field_tag :file %>
-	<%= submit_tag "Import" %>
+	<%= submit_tag "Upload drugs" %>
+<% end %>
+
+<div style="float: right"><h4>Indentify banned drugs</h4>
+<%= form_tag identifyred_path, multipart: true do |f| %>
+	<%= file_field_tag :file_identify %>
+	<%= submit_tag "Upload drugs" %>
 <% end %>
 </div>
 
