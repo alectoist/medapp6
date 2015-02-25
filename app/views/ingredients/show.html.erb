@@ -2,8 +2,9 @@
       <div class="drug-wrap drug-wrap-show">
         <div>
         	<%= ingredient_partial %>
-          
+          <% unless @ingredient.description.nil? %>
           <p><%= @ingredient.description %></p>
+          <% end %>
         </div>
         <p><b>Substancja występuje w następujących lekach:</b></p>
         <div class="ingredients-cloud">
