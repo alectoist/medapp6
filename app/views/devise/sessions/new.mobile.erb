@@ -1,3 +1,4 @@
+
 <% content_for :page_specific_css do %>
     <%= stylesheet_link_tag 'devise-specific', media: 'all', 'data-turbolinks-track' => true %>
 <% end %>
@@ -19,7 +20,7 @@
     <%= f.email_field :email, autofocus: true, id: 'email_field' %>
   </div>
 
-  <div class="field-wrap">
+  <div class="field-wrap" id="wrap-password">
     <%= f.label :password, id: 'password_label' %><br />
     <%= f.password_field :password, autocomplete: "off", id: 'password_field' %>
   </div>
