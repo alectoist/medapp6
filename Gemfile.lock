@@ -72,6 +72,8 @@ GEM
       turbolinks
     jquery-ui-rails (5.0.3)
       railties (>= 3.2.16)
+    jquery_mobile_rails (1.4.5)
+      railties (>= 3.1.0)
     json (1.8.2)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
@@ -182,6 +184,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  jquery_mobile_rails
   pg
   rails (= 4.1.8)
   rails_12factor

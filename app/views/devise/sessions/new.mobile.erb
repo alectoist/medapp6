@@ -1,0 +1,73 @@
+<% content_for :page_specific_css do %>
+    <%= stylesheet_link_tag 'devise-specific', media: 'all', 'data-turbolinks-track' => true %>
+<% end %>
+
+<div class="login-wrap">
+
+<ul class="tab-group">
+        <li class="tab"><a href="#signup">Sign Up</a></li>
+        <li class="tab active"><a href="#login">Log In</a></li>
+      </ul>
+
+<div class="tab-content">
+
+<div id="login">
+
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field-wrap">
+    <%= f.label :email, id: 'email_label'  %><br />
+    <%= f.email_field :email, autofocus: true, id: 'email_field' %>
+  </div>
+
+  <div class="field-wrap">
+    <%= f.label :password, id: 'password_label' %><br />
+    <%= f.password_field :password, autocomplete: "off", id: 'password_field' %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field-wrap">
+      <%= f.check_box :remember_me, id: 'remember_checkbox' %>
+      <%= f.label :remember_me, id: 'remember_label' %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Log in", class: "button" %>
+  </div>
+<% end %>
+
+            
+</div>
+
+<div id="signup">
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field-wrap">
+    <%= f.label :email, id: 'signup_email_label' %><br />
+    <%= f.email_field :email, autofocus: true, id: 'signup_email_field' %>
+  </div>
+  <div class="field-wrap">
+    <%= f.label :password, id: 'signup_password_label'  %>
+    <% if @validatable %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off", id: 'signup_password_field' %>
+  </div>
+
+  <div class="field-wrap">
+    <%= f.label :password_confirmation, 'Confirmation', id: 'signup_confirmation_label' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", id: 'signup_confirmation_field' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class: 'button' %>
+  </div>
+<% end %>
+
+</div>
+</div>
+
+<%= render "devise/shared/links" %>
+</div>
