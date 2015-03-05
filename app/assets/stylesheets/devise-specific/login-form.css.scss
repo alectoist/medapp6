@@ -27,6 +27,14 @@ a {
   }
 }
 
+a[href="/password/new"] {
+  color: $main!important;
+
+  &:hover {
+  color: $main-dark!important;
+  }
+}
+
 .login-wrap {
   background:rgba($form-bg,.9);
   padding: 40px;
@@ -184,8 +192,18 @@ textarea {
 
 #remember_checkbox {
   float: right;
-  width: 10px;
   margin-top: -26px;
+}
+
+input[type=checkbox], input[type=radio] {
+width: auto;
+height: auto;
+padding: 0;
+margin: 3px 0;
+line-height: normal;
+border: 0;
+background-color: transparent;
+cursor: pointer;
 }
 
 #remember_label {

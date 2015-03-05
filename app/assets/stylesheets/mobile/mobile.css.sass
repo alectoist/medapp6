@@ -26,6 +26,7 @@ input, textarea
 	margin: 0 auto
 	border: 2px solid #A0B3B0!important
 
+
 /* Login Form Styles */
 
 label
@@ -37,13 +38,55 @@ label.active
 	transform: translateY(190%)!important
 
 #remember_label
-	width: 10%!important
-	margin: 0 auto
+	float: none!important
+	text-align: center
 
 #remember_checkbox
 	width: 10%!important
 	margin: 0 auto!important
-	float: none!important
+	float: none!important	
+	width: 40px
+	height: 40px
 
 #wrap-password
-	margin-bottom: 200px
+	margin-bottom: 150px
+
+@-moz-document url-prefix()
+	#signup_email_field, #signup_password_field, #signup_confirmation_field
+		transform: translateY(-30%)!important
+
+	#remember_checkbox
+		-moz-transform: scale(2)
+
+#login-shared
+	font-size: 2em
+	width: 331px
+	margin: 0 auto
+	margin-top: 50px
+
+/*Forgot Password Styles */
+
+.login-wrap, .sign-up-wrap, .forgot-password
+	color: rgba(255, 255, 255, 0.5)
+	background: none
+	width: 100%
+	margin: 0 auto
+	margin-top: 50px
+	box-shadow: none
+	display: table
+	position: static
+	padding: 25px
+	font-family: "Helvetica Neue", Helvetica, Arial
+	text-align: center
+
+.forgot-password input
+	background: none repeat scroll 0% 0% transparent
+
+.forgot-password .actions input
+	border: 0px none
+	outline: medium none
+	border-radius: 0px
+	padding: 15px 0px
+	background: none repeat scroll 0% 0% #1AB188
+	color: #FFF
+	transition: all 0.5s ease 0s
