@@ -1,8 +1,11 @@
 <div class="topbar-wrap">
-
+<div class="toggle-menu-wrap">
+≡
+</div>
+<div class="options-wrap">
 <div id="user-nav" style="position: relative">
 <% if user_signed_in? %>
-Logged in as <strong><%= current_user.email %></strong>.
+Logged in as: <strong><span><%= current_user.email %></span></strong>
 <div><span id="edit-profile"><%= link_to 'Edit profile', edit_user_registration_path %></span>
 <span id="logout"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></span></div>
 <% else %>
@@ -17,6 +20,9 @@ Logged in as <strong><%= current_user.email %></strong>.
       <%= link_to "<li>Pomoc</li>".html_safe, help_path %>
 	</ul>
 </nav>
+
+</div>
+
 </div>
 
 <div class="search-wrap-home inner-addon right-addon">

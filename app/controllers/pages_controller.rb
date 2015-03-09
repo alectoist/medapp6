@@ -15,6 +15,10 @@ class PagesController < ApplicationController
   def help
   end
 
+  def login
+    redirect_to root_path
+  end
+
   def viewdrugs
     require_admin
     @search = Drug.search do

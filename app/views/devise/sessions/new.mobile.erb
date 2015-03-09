@@ -3,6 +3,10 @@
     <%= stylesheet_link_tag 'devise-specific', media: 'all', 'data-turbolinks-track' => true %>
 <% end %>
 
+<% content_for :additional_body do %>
+  style="background: rgba(19, 35, 47, 0.9)"
+<% end %>
+
 <div class="login-wrap">
 
 <ul class="tab-group">
