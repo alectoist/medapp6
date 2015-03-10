@@ -12,11 +12,11 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :email, id: 'forgot_label' %><br />
+    <%= f.email_field :email, autofocus: true, id: 'forgot_field' %>
   </div>
 
-  <div class="actions">
+  <div class="actions" id="send-new-password">
     <%= f.submit "Send me new password" %>
   </div>
 <% end %>

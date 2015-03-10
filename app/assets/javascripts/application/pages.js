@@ -4,7 +4,7 @@ $(function() {
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       limit: 10,
       remote: {
-        url: 'http://localhost:3000/drugs/query?q=%QUERY',
+        url: '/drugs/query?q=%QUERY',
          filter: function(list) {
             console.log(list)
             return $.map(list, function(drug) { return { name: drug.name, link: drug.link }; });

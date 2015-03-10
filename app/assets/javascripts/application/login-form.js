@@ -1,6 +1,6 @@
 $(function(){
 
-$('#email_field, #password_field').keyup(function(){
+$('#email_field, #password_field, #forgot_field').on('keyup blur focus', function(){
 //Email field animation
   if ($('#email_field').val() !== "" ) {
   $('#email_label').addClass('active highlight');
@@ -15,10 +15,16 @@ $('#email_field, #password_field').keyup(function(){
   else {
    $('#password_label').removeClass('active highlight'); 
   }
-
+//Forgot animation
+  if ($('#forgot_field').val() !== "" ) {
+    $('#forgot_label').addClass('active highlight');
+  }
+  else {
+    $('#forgot_label').removeClass('active highlight');
+  };
 });
 
-$('#signup_email_field, #signup_password_field, #signup_confirmation_field').keyup(function(){
+$('#signup_email_field, #signup_password_field, #signup_confirmation_field').on('keyup blur focus', function(){
 //Signup email field animation
   if ($('#signup_email_field').val() !== "" ) {
   $('#signup_email_label').addClass('active highlight');
@@ -53,5 +59,10 @@ $('.tab a').on('click', function (e) {
   $('.tab-content > div').not(target).hide();
   $(target).fadeIn(600);
 });
+
+
+//Onload check
+
+
 
 });
