@@ -86,6 +86,13 @@ class DrugsController < ApplicationController
         end
         render json: results
       end
+
+      format.mobile do
+        results = search.results.map do |drug|
+          { name: drug.name, link: "http://localhost:3000/drugs/#{drug.id}" }
+        end
+        render json: results
+      end
     end
   end
 

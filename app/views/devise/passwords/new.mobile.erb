@@ -1,6 +1,10 @@
 <% content_for :page_specific_css do %>
     <%= stylesheet_link_tag 'devise-specific', media: 'all', 'data-turbolinks-track' => true %>
 <% end %>
+
+<% content_for :additional_body do %>
+  style="background: rgba(19, 35, 47, 0.9)"
+<% end %>
 <div class="forgot-password">
 <h2 id="forgot-password-h2">Forgot your password?</h2>
 

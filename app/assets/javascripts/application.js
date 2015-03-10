@@ -16,4 +16,4 @@
 //= require jquery-ui
 //= require handlebars
 //= require twitter/typeahead
-//= require_tree .
+//= require_tree ./application
