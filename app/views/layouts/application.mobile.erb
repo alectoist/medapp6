@@ -6,10 +6,10 @@
   <%= stylesheet_link_tag 'mobile' if mobile_device? %>
   <%= yield :page_specific_css %>
   <%= javascript_include_tag 'mobile', 'data-turbolinks-track' => true %>
-  
+  <%= yield :additional_head %>
   <meta name="viewport" content="width=600">
 </head>
-<body <%= yield :additional_body %> >
+<body>
 
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
