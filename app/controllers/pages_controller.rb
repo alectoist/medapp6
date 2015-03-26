@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-
+  
   before_filter :require_login
   layout :resolve_layout
   def home

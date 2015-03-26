@@ -4,7 +4,7 @@
 <% end %>
 
 <% content_for :additional_head do %>
-<style type="text/css"> .ui-page-theme-a {background: rgba(19, 35, 47, 0.9)} </style>
+<style type="text/css"> .ui-page {background: rgba(19, 35, 47, 0.9)} </style>
 <% end %>
 
 <script type="text/javascript"></script>
@@ -32,7 +32,7 @@
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="field-wrap">
+    <div class="field-wrap" id="wrap-remember">
       <%= f.check_box :remember_me, id: 'remember_checkbox' %>
       <%= f.label :remember_me, id: 'remember_label' %>
     </div>
@@ -68,7 +68,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "off", id: 'signup_confirmation_field' %>
   </div>
 
-  <div class="actions">
+  <div class="actions" id="sign-in-button">
     <%= f.submit "Sign up", class: 'button' %>
   </div>
 <% end %>

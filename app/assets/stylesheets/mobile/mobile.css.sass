@@ -46,13 +46,19 @@ input, textarea
 #sign-in-button .ui-btn
 	font-size: 2em!important
 
+#sign-in-button .ui-btn input
+	width: 100%!important
+
 label
 	font-size: 2em!important
-	transform: translateY(66%)!important
-	margin-left: 17%
+	transform: translateY(86%)!important
+	margin-left: 17%!important
+
+label[for="user_password"], label[for="user_email"]
+	color: #e3e3e3
 
 label.active
-	transform: translateY(190%)!important
+	transform: translateY(240%)!important
 
 #remember_label
 	float: none!important
@@ -66,6 +72,9 @@ label.active
 	position: absolute
 	margin-top: -60px!important
 
+#wrap-remember
+	padding-top: 3%
+
 .field-wrap .ui-checkbox
 	width: 40px
 	margin: 0 auto
@@ -74,11 +83,15 @@ label.active
 	margin-bottom: 150px
 
 @-moz-document url-prefix()
-	#signup_email_field, #signup_password_field, #signup_confirmation_field
-		transform: translateY(-30%)!important
-
 	#remember_checkbox
 		-moz-transform: scale(1)
+
+	#signup_email_label, #signup_password_label, #signup_confirmation_label
+		margin-top: 3%
+
+
+#signup_email_label, #signup_password_label, #signup_confirmation_label
+	color: #e3e3e3!important
 
 #login-shared
 	font-size: 2em
@@ -101,8 +114,16 @@ label.active
 	font-family: "Helvetica Neue", Helvetica, Arial
 	text-align: center
 
+#signup #new_user #sign-in-button
+	margin-top: 12%
+
 .forgot-password input
 	background: none repeat scroll 0% 0% transparent
+	width: 100%!important
+
+.forgot-password .ui-input-text
+	width: 400px
+	margin: 0 auto
 
 .forgot-password .actions input
 	border: 0px none
@@ -114,7 +135,12 @@ label.active
 	transition: all 0.5s ease 0s
 
 #send-new-password
-	margin-top: 50px
+	width: 450px
+	margin: 0 auto
+	margin-top: 15%
+
+#send-new-password .ui-btn
+	font-size: 2em
 
 /* Main Page Styles */
 
