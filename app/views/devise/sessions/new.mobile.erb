@@ -1,4 +1,8 @@
-
+<script type="text/javascript">
+if(document.referrer == "http://localhost:3000/"){
+  location.reload();
+}
+</script>
 <% content_for :page_specific_css do %>
     <%= stylesheet_link_tag 'devise-specific', media: 'all', 'data-turbolinks-track' => true %>
 <% end %>
